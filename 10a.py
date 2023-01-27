@@ -26,12 +26,10 @@ def localWeightRegression(xmat, ymat, k):
     return ypred
 
 
-# load data points
 data = pd.read_csv('tips.csv')
 bill = np.array(data.total_bill)
 tip = np.array(data.tip)
 
-# preparing and add 1 in bill
 mbill = np.mat(bill)
 mtip = np.mat(tip)
 
@@ -39,7 +37,6 @@ m = np.shape(mbill)[1]
 one = np.mat(np.ones(m))
 X = np.hstack((one.T, mbill.T))
 
-# set k here
 ypred = localWeightRegression(X, mtip, 0.5)
 SortIndex = X[:, 1].argsort(0)
 xsort = X[SortIndex][:, 0]
