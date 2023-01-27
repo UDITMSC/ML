@@ -106,7 +106,6 @@ def classify(node, x_test, features):
             classify(n, x_test, features)
 
 
-'''Main program'''
 dataset, features = load_csv("id3.csv")
 node1 = build_tree(dataset, features)
 print("The decision tree for the dataset using ID3 algorithm is")
