@@ -1,5 +1,5 @@
-#conda install -c ankurankan pgmpy ----“” [To install from anaconda prompt]
-#https://pypi.org/project/pgmpy/----“” [Documentation]
+
+
 import numpy as np
 import pandas as pd
 import csv
