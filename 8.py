@@ -21,19 +21,19 @@ scaler = preprocessing.StandardScaler()
 scaler.fit(X)
 xsa = scaler.transform(X)
 xs = pd.DataFrame(xsa, columns = X.columns)
-#xs.sample(5)
+
 
 gmm = GaussianMixture(n_components=3)
 gmm.fit(xs)
 y_gmm = gmm.predict(xs)
 
-# Plot the Original Classifications
+
 plt.subplot(1, 2, 1)
 plt.scatter(X.Petal_Length, X.Petal_Width, c=colormap[y.Targets], s=40)
 plt.title('Real Classification')
 plt.xlabel('Petal Length')
 plt.ylabel('Petal Width')
-# Plot the Models Classifications
+
 plt.subplot(1, 2, 2)
 plt.scatter(X.Petal_Length, X.Petal_Width, c=colormap[model.labels_], s=40)
 plt.title('K Mean Classification')
@@ -41,7 +41,7 @@ plt.xlabel('Petal Length')
 plt.ylabel('Petal Width')
 plt.show()
 
-#y_cluster_gmm
+
 plt.scatter(X.Petal_Length, X.Petal_Width, c=colormap[y_gmm], s=40)
 plt.title('GMM Classification')
 plt.xlabel('Petal Length')
