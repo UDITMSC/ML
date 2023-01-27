@@ -7,13 +7,13 @@ X = msg.message
 y = msg.labelnum
 print(X)
 print(y)
-# splitting the dataset into train and test data
+
 from sklearn.model_selection import train_test_split
 
 xtrain, xtest, ytrain, ytest = train_test_split(X, y)
 print('\n The total number of Training Data :', ytrain.shape)
 print('\n The total number of Test Data :', ytest.shape)
-# output of the words or Tokens in the text documents
+
 from sklearn.feature_extraction.text import CountVectorizer
 
 count_vect = CountVectorizer()
@@ -22,12 +22,12 @@ xtest_dtm = count_vect.transform(xtest)
 print('\n The words or Tokens in the text documents \n')
 print(count_vect.get_feature_names_out())
 df = pd.DataFrame(xtrain_dtm.toarray(), columns=count_vect.get_feature_names_out())
-# Training Naive Bayes (NB) classifier on training data.
+
 from sklearn.naive_bayes import MultinomialNB
 
 clf = MultinomialNB().fit(xtrain_dtm, ytrain)
 predicted = clf.predict(xtest_dtm)
-# printing accuracy, Confusion matrix, Precision and Recall
+
 from sklearn import metrics
 
 print('\n Accuracy of the classifier is', metrics.accuracy_score(ytest, predicted))
